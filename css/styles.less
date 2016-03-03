@@ -1,0 +1,763 @@
+/*
+ * Styles for index.html
+ *
+*/
+
+/* ----------------------- *\
+   SECTION-VARIABLES&MIXINS
+\* ----------------------- */
+/* ------ COLORS --------- */
+
+@logo-bgrnd:            #0b1f8f;
+@menu-bgrnd:            #775714;
+@dark-bgrnd:            #edeceb;
+@footer-bgrnd:          @logo-bgrnd;
+@paginator-bgrnd :      #a7a19d;
+@paginator-chkd-bgrnd:  #775714;
+@arrow-substrate-bgrnd: #000000; 
+@company-name-color:    @menu-bgrnd;
+@menu-text-color:       #ffffff;
+@main-text-color:       #6f625a;
+@strong-text-color:     #000000;
+@footer-text-color:     @menu-text-color;
+@links-color:           #435cc8;
+
+
+/* ------- FONTS --------- */
+
+@main-font: 'Open Sans', Arial, sans-serif;
+@company-name-font: 'Merriweather', Times, serif;
+
+
+/* ------- OTHER ----------*/
+
+@block-distance: 80px;
+
+
+/* ------- MIXINS ---------*/
+
+.block-distances {
+    padding-top:    @block-distance;
+    padding-bottom: @block-distance;
+}
+
+.text-block-paddings {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+
+
+
+/* ----------------------- *\
+   SECTION-TOTAL
+\* ----------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: @main-font; 
+}
+
+body {
+    min-width: 580px; 
+}
+
+.wrapper {
+    max-width: 960px;
+    min-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+[class^="learn-more"] {
+    display: inline-block;
+    width: 13px; 
+    height: 13px; 
+    background-image: url("../img/sprite-models.png"); 
+}
+
+
+
+
+
+
+/* ----------------------- *\
+   SECTION-HEADER
+\* ----------------------- */
+
+.company-name {
+    padding-top: 13px;
+    padding-bottom: 7px;
+    border-bottom: 3px solid @company-name-color;
+
+    
+    >h1 {
+        padding-right: 73px;
+        text-transform: uppercase;
+        font-family: @company-name-font;
+        font-size: 2.125em;
+        font-weight: normal;
+        word-spacing: 0.2em;
+        color: @company-name-color;
+        text-align: right;
+
+        
+         span {
+            font-family: @company-name-font;
+            font-size: 1.2em;
+        }
+    }
+}
+
+
+.company-logo-bar {
+    height: 80px;
+    margin-top: 8px;
+    background-color: @logo-bgrnd;
+
+    
+    >div {
+        padding-top: 28px;
+        padding-left: 27px;
+    }
+}
+
+
+
+
+
+/* ----------------------- *\
+   SECTION-PROMO-IMAGE
+\* ----------------------- */
+
+.promo__img {
+    
+    
+    img {
+        vertical-align: bottom; //for deleting whitespace below of the image
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+
+
+
+
+/* ----------------------- *\
+   SECTION-MENU
+\* ----------------------- */
+
+.menu-bar {
+    height: 80px;
+    background-color: @menu-bgrnd;
+
+
+    nav {
+        line-height: 80px;  //for vertical align
+        .text-block-paddings;
+    
+    
+        a{
+            margin-right: 50px;
+            text-decoration: none;
+            font-size: 1.5em;
+            color: @menu-text-color;
+            cursor: pointer;
+        }
+    }
+}
+
+
+
+
+
+/* ----------------------- *\
+   SECTION-PROMO-TEXT
+\* ----------------------- */
+
+.promo__text {
+    padding-top:    @block-distance - 20px;
+    padding-bottom: @block-distance;
+    .text-block-paddings;
+
+
+    >img {
+        margin-bottom: 35px;
+    }
+    
+    
+    >p {
+        color: @main-text-color;
+        line-height: 1.625em;
+    }
+}
+
+
+
+
+
+/* ----------------------- *\
+   SECTION-GALERY
+\* ----------------------- */
+
+.gallery {
+    padding-top:    0;
+    padding-bottom: @block-distance;
+}
+
+
+.main-screen {
+    margin-bottom: 20px;
+
+
+    >img {
+        display: none;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+
+.previews {
+    position: relative;
+    max-width: 960px;
+    height: 88px;
+    margin-bottom: 13px;
+    overflow: hidden;
+    
+    
+    >div {
+        width: 10960px;
+        white-space: nowrap;    
+        margin-left: -5000px; 
+        text-align: center;
+    
+    
+        label {
+            cursor: pointer;
+        }
+        
+        label:not(:last-child) {
+            margin-right: 20px;
+        }
+    }
+    
+    @media screen and (max-width: 801px) {
+        >div {
+            width: 10800px;
+        }
+    }
+        
+    @media screen and (max-width: 769px) {
+        >div {
+            width: 10768px;
+        }
+    }
+        
+    @media screen and (max-width: 601px) {
+        >div {
+            width: 10600px;
+        }
+    }
+}
+
+
+// scroll
+[class^="gallery__scroll"]  {
+    position: absolute;
+    top: 0;
+    width: 45px; 
+    height: 88px; 
+    background-color: @arrow-substrate-bgrnd; 
+    opacity: 0.4;
+    z-index: 10;
+    cursor: pointer;
+    
+    &:hover {
+        opacity: 0.6;
+    }
+}
+
+
+.gallery__scroll--left {
+    left: 0;
+}
+
+
+.gallery__scroll--right {
+    right: 0;
+}
+
+
+[class^="scroll-img"] {
+    width: 30px; 
+    height: 88px; 
+    margin-top: 5px;
+    margin-left: 7px;
+    background-image: url("../img/sprite-models.png"); 
+}
+
+.scroll-img-left {
+    background-position: -370px 0;
+}
+
+.scroll-img-right {
+    background-position: -401px 0;
+}
+
+
+// paginator
+.paginator {
+    text-align: center;
+
+    
+    >label {
+        display: inline-block;
+        height: 10px;
+        width: 50px;
+        background-color: @paginator-bgrnd;
+        cursor: pointer;
+    }
+}
+
+
+// switches (logic)
+// previews
+.gallery>input {
+    display: none;
+}
+
+
+#pr0:checked~.main-screen>#img0, #pr1:checked~.main-screen>#img1,
+#pr2:checked~.main-screen>#img2, #pr3:checked~.main-screen>#img3,
+#pr4:checked~.main-screen>#img4, #pr5:checked~.main-screen>#img5,
+#pr6:checked~.main-screen>#img6, #pr7:checked~.main-screen>#img7,
+#pr8:checked~.main-screen>#img8 {
+    display: block;
+}
+
+
+// paginator
+#scrl-left-middle, #scrl-right-middle, #scrl-left, #scrl-right {
+    display: none;
+}
+
+
+#pag1:checked~.previews>#scrl-right-middle,
+#pag2:checked~.previews>#scrl-left,
+#pag2:checked~.previews>#scrl-right,
+#pag3:checked~.previews>#scrl-left-middle {
+    display: block;
+}
+
+
+#pag1:checked~.paginator>#lbl1,
+#pag2:checked~.paginator>#lbl2,
+#pag3:checked~.paginator>#lbl3 {
+    background-color: @paginator-chkd-bgrnd;
+}
+
+
+#pag1:checked~.previews>div {
+    margin-left: 0; 
+    text-align: left;
+}
+
+#pag3:checked~.previews>div {
+    margin-left: -10000px;
+    text-align: right;
+}
+
+
+
+
+
+/* ----------------------- *\
+   SECTION-CHARACTERISTICS
+\* ----------------------- */
+
+.characteristics {
+    .block-distances;
+    background: @dark-bgrnd;
+    
+    
+    >div {
+        .text-block-paddings;
+        position: relative;
+    }
+}
+
+
+.models-tbl {
+    width: 100%;
+    border-collapse: collapse;
+    
+    
+    col:nth-child(2) {
+        width: 80px;
+    }
+    
+    col:last-child {
+        width: 25%;
+    }
+    
+    
+    tbody {
+    
+    
+        td {
+            height: 84px;
+            font-size: 1.875em;
+        
+            &:not(:first-child):not(:last-child) {
+                border-right: 1px solid #000000;
+            }
+            
+            &:first-child {
+                font-size: 1.125em;
+            }
+            
+            
+            div {
+                height: 70px;
+                width: 70px;
+                background-image: url("../img/sprite-models.png");
+            }
+        }
+
+        
+        @media screen and (max-width: 769px) {
+            td {
+                font-size: 1.375em;
+                
+                &:first-child {
+                    font-size: 0.75em;
+                }
+                
+                
+                div {
+                    height: 36px;
+                    width: 36px;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+    
+    
+    td {
+        text-align: center;
+        vertical-align: middle;
+    }
+}
+
+
+.distance-img {
+    background-position: 0 0;
+}
+
+.speed-img {
+    background-position: -74px 0;
+}
+
+.passengers-img {
+    background-position: -148px 0;
+}
+
+.weight-img {
+    background-position: -223px 0;
+}
+
+.runway-img {
+    background-position: -298px 0;
+}
+            
+            
+.plain-model {
+    position: relative;
+    height: 80px;
+    padding-top: 0.5em;
+    background: url(../img/plane-model.png) no-repeat 0 0;
+    background-size: contain;
+    color: @dark-bgrnd;
+    
+    
+    div {
+        position: absolute;
+        top: -5px;
+        right: 8%;
+        font-size: 1.875em;
+        font-family: Arial, sans-serif;
+        font-weight: normal;
+        color: #a7a19d;
+    }
+}
+
+
+@media screen and (max-width: 769px) {
+    .distance-img {
+        background-position: -48px -72px;
+    }
+    
+    .speed-img {
+        background-position: -85px -72px;
+    }
+    
+    .passengers-img {
+        background-position: -123px -72px;
+    }
+    
+    .weight-img {
+        background-position: -161px -72px;
+    }
+    
+    .runway-img {
+        background-position: -199px -72px;
+    }
+            
+            
+    .plain-model {
+        padding-top: 0;
+    
+    
+        div {
+            font-size: 1.5em;
+        }
+    }
+}
+
+
+@media screen and (max-width: 601px) {
+    .plain-model {
+        padding-top: 0;
+        padding-top: 1.15em;
+        vertical-align: top;
+    
+    
+        div {
+            font-size: 1em;
+        }
+    }
+}
+
+
+// Models info
+.infoblock {
+    font-size: 1.125em;
+    line-height: 1.5em;
+    color: @main-text-color;
+    
+    span {
+        color: @strong-text-color;
+    }
+    
+    
+    p:not(:last-child) {
+        padding-bottom: 1.25em;
+    }
+}
+
+// Show/hide model info logic
+.model-info-switch {
+    padding-top: 27px;
+    padding-bottom: 75px;;
+    font-size: 1.125em;
+    line-height: 1.125em;
+    color: @links-color;
+
+
+    label {
+        display: none;
+        cursor: pointer;
+    }
+}
+
+.learn-more-down {
+    background-position: 0px 40px;
+}
+
+
+.characteristics>input,
+.infoblock    {
+    display: none;
+}
+
+
+#info--bbj1:checked~div #info2, #info--bbj1:checked~div #info3,
+#info--bbj1:checked~div .info--bbj1 {
+    display: block;
+}
+
+#info--bbj2:checked~div #info1, #info--bbj2:checked~div #info3,
+#info--bbj2:checked~div .info--bbj2 {
+    display: block;
+}
+
+#info--bbj3:checked~div #info1, #info--bbj3:checked~div #info2,
+#info--bbj3:checked~div .info--bbj3 {
+    display: block;
+}
+
+
+// "back to top" block
+.back-to-top {
+    display: block;
+    position: absolute;
+    right: 10px;
+    bottom: -70px;
+    height: 30px;
+    width: 130px;
+    outline: 1px solid lighten(@main-text-color, 30%);
+    line-height: 30px;
+    text-decoration: none;
+    text-align: center;
+    color: lighten(@main-text-color, 30%);
+    
+    
+    >div {
+        float: right;
+        height: 30px;
+        width: 30px;
+        background-color: @links-color;
+        outline: 1px solid lighten(@main-text-color, 30%);
+
+        
+        div {
+            width: 13px; 
+            height: 13px; 
+            margin-top: 7px;
+            margin-left: 8px;
+            background-image: url("../img/sprite-models.png"); 
+            background-position: -24px 40px;
+        }
+    }
+}
+
+
+
+
+
+
+
+/* ----------------------- *\
+   SECTION-NEWS
+\* ----------------------- */
+
+.news {
+    .block-distances;
+    color: @main-text-color;
+    font-size: 1.125em;
+    .text-block-paddings;
+    
+    
+    h2 {
+        font-size: 1.5em;
+        margin-bottom: 0.8em;
+        color: @strong-text-color;
+    }
+    
+    
+    >div {
+        margin-bottom: 1.5em;
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+        
+        
+        h3 {
+            font-size: 1.125em;
+            font-weight: 400;
+        }
+        
+        
+        a {
+            text-decoration: none;
+        }
+    }
+}
+
+
+.learn-more-right {
+    background-position: -13px 40px;
+}
+
+
+
+
+
+
+/* ----------------------- *\
+   SECTION-CONTACTS
+\* ----------------------- */
+
+.contacts {
+    .block-distances;
+    background: @dark-bgrnd;
+    font-size: 1.125em;
+    color: @main-text-color;
+    
+    
+    >div {
+        .text-block-paddings;
+    }
+    
+    
+    h2 {
+        font-size: 1em;
+        font-weight: normal;
+        color: @main-text-color;
+    }
+    
+    
+    h3 {
+        font-size: 1em;
+        color: @strong-text-color;
+    }
+    
+    
+    a {
+        text-decoration: none;
+    }
+}
+
+
+
+
+
+/* ----------------------- *\
+   SECTION-FOOTER
+\* ----------------------- */
+
+footer {
+    height: 80px;
+    background-color: @footer-bgrnd;
+    
+    
+    >div {
+        .text-block-paddings;
+        line-height: 80px;
+        color: @footer-text-color;
+        font-size: 0.875em;
+    }
+}
+
+
+.copyright {
+    float: left;
+    text-align: left;
+}
+
+
+.policy {
+    display: block;
+    text-decoration: none;
+    float: right;
+    text-align: right;
+    color: @footer-text-color;
+}
